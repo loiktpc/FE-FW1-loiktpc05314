@@ -6,6 +6,8 @@ import { IProduct } from './interface/IProduct';
 import { ItemProductComponent } from './item-product/item-product.component';
 import { ProductlistComponent } from './pages/lab2/productlist/productlist.component';
 import { HeaderComponent } from './pages/lab2/header/header.component';
+import { ProductComponent } from './pages/lab3/product/product.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,9 @@ import { HeaderComponent } from './pages/lab2/header/header.component';
     RouterLink,
     ProductlistComponent,
     HeaderComponent,
+    ProductComponent,
+    TooltipModule
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

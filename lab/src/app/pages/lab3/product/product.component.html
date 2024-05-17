@@ -1,0 +1,63 @@
+<app-header></app-header>
+<main class="main_productLab3">
+  <h3>Product List</h3>
+  <p>{{ title | uppercase }}</p>
+
+  <form>
+    <input
+      type="text"
+      placeholder="Nhập tên sản phẩm"
+      [(ngModel)]="listFilter"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <button
+      style="margin-left: 8px"
+      type="button"
+      class="btn btn-primary small"
+    >
+      Search
+    </button>
+  </form>
+  <dialog [dialogname]="dialogname"></dialog>
+  <p #pRef class="text-center"></p>
+  <button type="button" class="btn btn-warning" (click)="clickMe()">
+    click me
+  </button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">image</th>
+        <th scope="col">product</th>
+        <th scope="col">code</th>
+        <th scope="col">avaliable</th>
+        <th scope="col">price</th>
+        <th scope="col">5 star rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ItemProduct of Products; index as i">
+        <td>
+          <img
+            width="80"
+            src="{{ ItemProduct.imageUrl }}"
+            alt=""
+            [title]="ItemProduct.productName | uppercase"
+          />
+        </td>
+        <td>{{ ItemProduct.productName }}</td>
+        <td>{{ ItemProduct.productCode }}</td>
+        <td>{{ ItemProduct.releaseDate }}</td>
+        <td>{{ ItemProduct.price }}</td>
+        <td>
+          <app-star
+            style="cursor: pointer"
+            tooltip="số sao {{ ItemProduct.starRating }}"
+            [rating]="ItemProduct.starRating"
+            (ratingClicked)="clickMeStar($event)"
+          ></app-star>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

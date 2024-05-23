@@ -1,0 +1,55 @@
+<main class="mainproductlist" *ngIf="isProductLab4">
+  <h3 style="border: 1px solid gray; padding: 4px 8px 8px 8px;">Lab4 Product List</h3>
+  <div>
+    <div style="margin-left: 8px;">
+      <label for="">Filter:</label>
+      <input style="margin-left: 30px;" type="text">
+    </div>
+    <h3 style="margin-left: 8px;">Filter: </h3>
+  </div>
+  <table    class="table table-striped">
+
+    <thead>
+      <tr>
+        <th scope="col">image</th>
+        <th scope="col">product</th>
+        <th scope="col">code</th>
+        <th scope="col">avaliable</th>
+        <th scope="col">price</th>
+        <th scope="col">5 star rating</th>
+        <th>thao tác</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let ItemProduct of listProduct; index as i">
+        <td>
+          <div >
+            <img width="80" src="{{ ItemProduct.imageUrl }}" alt="" />
+          </div>
+        </td>
+        <td>{{ ItemProduct.productName }}</td>
+        <td>{{ ItemProduct.productCode }}</td>
+        <td>{{ ItemProduct.releaseDate }}</td>
+        <td>{{ ItemProduct.price }}</td>
+        <td>
+          <app-starlab4
+          style="cursor: pointer"
+        
+          [rating]="ItemProduct.starRating"
+          (ratingClicked)="clickMeStar($event)"
+        ></app-starlab4>
+        </td>
+        <td>
+           
+                <a  type="button" class="btn btn-primary"  style="color: white;" routerLink="/homelab4/productlab4/{{ ItemProduct.productId }}"  ariaCurrentWhenActive="page">chi tiết</a>
+           
+        </td>
+      </tr>
+   
+    </tbody>
+  
+  </table>
+</main>
+
+  <router-outlet></router-outlet>

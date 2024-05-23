@@ -8,6 +8,7 @@ import { ProductlistComponent } from './pages/lab2/productlist/productlist.compo
 import { HeaderComponent } from './pages/lab2/header/header.component';
 import { ProductComponent } from './pages/lab3/product/product.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ProductComponentLab4 } from './pages/lab4/product/product.component';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +22,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     ProductlistComponent,
     HeaderComponent,
     ProductComponent,
-    TooltipModule
-
+    TooltipModule ,
+    ProductComponentLab4
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

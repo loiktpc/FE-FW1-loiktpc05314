@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'product', component: ProductComponent, pathMatch: 'full' },
   { path: 'star', component: StarComponent, pathMatch: 'full' },
   // lab 4
-  // { path: '', redirectTo: '/homelab4', pathMatch: 'full' },
+  { path: '', redirectTo: '/homelab4', pathMatch: 'full' },
   // { path: 'homelab4', component: HomeComponent },
   // { path: 'productlab4', component: ProductComponentLab4  },
   // { path: 'productdetail/:id', component: ProductdetailComponent  },

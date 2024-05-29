@@ -9,6 +9,8 @@ import { HeaderComponent } from './pages/lab2/header/header.component';
 import { ProductComponent } from './pages/lab3/product/product.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ProductComponentLab4 } from './pages/lab4/product/product.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -24,6 +26,9 @@ import { ProductComponentLab4 } from './pages/lab4/product/product.component';
     ProductComponent,
     TooltipModule ,
     ProductComponentLab4
+  ],
+  providers: [
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

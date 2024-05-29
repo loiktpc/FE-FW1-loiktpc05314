@@ -1,0 +1,30 @@
+
+<form (ngSubmit)="onSubmit()" [formGroup]="loginFrom" method="post">
+  <div class="imgcontainer">
+   <h3> lab5 login</h3>
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Email</b></label>
+    <input type="text" placeholder="Enter email"name="email" formControlName="email" required>
+    
+      <div class="err" *ngIf="loginFrom.get('email')!.invalid && (loginFrom.get('email')!.dirty || loginFrom.get('email')!.touched)">
+        email không hợp lệ
+      </div>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" formControlName="psw" required>
+    <div class="err" *ngIf="loginFrom.get('psw')!.invalid && (loginFrom.get('psw')!.dirty || loginFrom.get('psw')!.touched)">
+        password không hợp lệ
+      </div>
+     
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>

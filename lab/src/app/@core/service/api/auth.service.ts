@@ -74,8 +74,7 @@ export class AuthService {
       return of(result as T);
     };
   }
-  // cách 4
-  // giả sử đây là service khác 
+  // cách 4 // giả sử đây là service khác 
   add(message: Ilogin) {
     console.log('check result 4', message);
   }

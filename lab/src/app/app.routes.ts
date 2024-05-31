@@ -8,6 +8,10 @@ import { HomeComponent } from './pages/lab4/home/home.component';
 import { PageNotFoundComponentComponent } from './pages/page-not-found-component/page-not-found-component.component';
 import { LoginComponent } from './pages/lab5/auth/login/login.component';
 import { Productlab5Component } from './pages/lab5/productlab5/productlab5.component';
+import { UnitComponent } from './pages/lab6/unit/unit.component';
+import { CreateComponent } from './pages/lab6/unit/create/create.component';
+import { DeleteComponent } from './pages/lab6/unit/delete/delete.component';
+import { EditComponent } from './pages/lab6/unit/edit/edit.component';
 
 export const routes: Routes = [
   // lab 3
@@ -23,9 +27,15 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/lab4/lab4.module').then(m => m.lab4Module),
   },
   // lab5 
-  { path: '', redirectTo: '/loginlab5', pathMatch: 'full' },
+  // { path: '', redirectTo: '/loginlab5', pathMatch: 'full' },
   { path: 'loginlab5', component: LoginComponent },
   { path: 'productlab5', component: Productlab5Component },
+  // lab 6
+  { path: '', redirectTo: '/lab6unit', pathMatch: 'full' },
+  { path: 'lab6unit', component: UnitComponent },
+  { path: 'lab6addunit', component: CreateComponent },
+  { path: 'lab6deleteunit/:id', component: DeleteComponent },
+  { path: 'lab6editunit/:id', component: EditComponent },
   { path: '**', component: PageNotFoundComponentComponent },
 ];
 

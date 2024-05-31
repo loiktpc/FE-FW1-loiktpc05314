@@ -1,0 +1,33 @@
+<div class="container" >
+  <a routerLink="/lab6unit" >
+    <button  type="button"  style="margin-top: 10px; color: white;"class="btn btn-info">Quay về Danh Sách</button>
+  </a>
+    <h2>Thêm data</h2>
+    <form class="row g-3 needs-validation" novalidate  [formGroup]="loginFrom" >
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">name</label>
+          <input type="text" class="form-control" id="validationCustom01" name="name" formControlName="name"  #username  required>
+          <div class="err" *ngIf="loginFrom.get('name')!.invalid && (loginFrom.get('name')!.dirty || loginFrom.get('name')!.touched)">
+            name ít nhất 3 kí tự
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Address</label>
+          <input type="text" class="form-control" id="validationCustom02" name="address" formControlName="address"  #useraddress  required>
+          <div class="err" *ngIf="loginFrom.get('address')!.invalid && (loginFrom.get('address')!.dirty || loginFrom.get('address')!.touched)">
+            Address không hợp lệ
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">mô tả</label>
+          <div class="input-group has-validation    ">
+            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" #noteuser required>
+           
+          </div>
+        </div>
+       
+        <div class="col-12">
+        <button class="btn btn-primary" [disabled]="!loginFrom.valid"    (click)="add(username.value ,useraddress.value, noteuser.value)" type="button">thêm</button>
+        </div>
+      </form>
+</div>

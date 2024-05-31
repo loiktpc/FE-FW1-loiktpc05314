@@ -1,0 +1,43 @@
+<div class="card">
+  <a routerLink="/lab6addunit" style="margin: 10px;">
+    <button  type="button" class="btn btn-info" style="color: white;">Thêm Data</button>
+  </a>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">address</th>
+                <th scope="col">description</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              @if (isLoading) {
+                <div class="spinner-border" style="text-align: center;" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              } @else {
+              <tr *ngFor="let item of ListData; index as i">
+                <th scope="row"> {{i+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.description}}</td>
+                <td>
+                  <a style="margin-right: 8px;" routerLink="/lab6editunit/{{item.id}}">
+                    <button type="button" class="btn btn-primary">sửa</button>
+                  </a>
+                  <a routerLink="/lab6deleteunit/{{item.id}}">
+                    <button type="button" class="btn btn-secondary">Xóa</button>
+                  </a>
+                </td>
+              </tr>
+  }
+
+            </tbody>
+          </table>
+    </div>
+  </div>
+ 
+   

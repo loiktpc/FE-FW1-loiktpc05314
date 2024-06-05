@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../../../@core/service/api/auth.service';
 import { NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -15,7 +16,7 @@ import { log } from 'console';
 export class LoginComponent implements OnInit {
   
   loginFrom!: FormGroup;
-  constructor(private AuthService :AuthService){
+  constructor(private AuthService :AuthService , private router : Router){
     
   }
 
@@ -34,19 +35,21 @@ export class LoginComponent implements OnInit {
         })
     }
     //  cách 2 
-    if(this.loginFrom.valid){
-      this.AuthService.Login2(this.loginFrom.value)
-    }
-    //  cách 3 
-    if(this.loginFrom.valid){
-      this.AuthService.login3(this.loginFrom.value).subscribe((res)=>{
-        console.log('check result 3:', res);
-      });
-    }
+    // if(this.loginFrom.valid){
+    //   this.AuthService.Login2(this.loginFrom.value)
+    // }
+    // //  cách 3 
+    // if(this.loginFrom.valid){
+    //   this.AuthService.login3(this.loginFrom.value).subscribe((res)=>{
+    //     console.log('check result 3:', res);
+    //   });
+    // }
   }
 
   protected handleLoginSuccess(res: any) {
+    this.router.navigate(['/lab6unit']).then();
     console.log('check result 1:', res);
+    // thành công thì chuyển trang 
   }
 
   protected handleLoginFailed() { }

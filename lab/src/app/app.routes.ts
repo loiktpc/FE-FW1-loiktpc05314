@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { ProductComponent } from './pages/lab3/product/product.component';
 import { StarComponent } from './pages/lab3/star/star.component';
@@ -12,6 +12,7 @@ import { UnitComponent } from './pages/lab6/unit/unit.component';
 import { CreateComponent } from './pages/lab6/unit/create/create.component';
 import { DeleteComponent } from './pages/lab6/unit/delete/delete.component';
 import { EditComponent } from './pages/lab6/unit/edit/edit.component';
+import { AuthGuard } from './@core/guards/auth.guards';
 
 export const routes: Routes = [
   // lab 3
@@ -26,13 +27,13 @@ export const routes: Routes = [
     path: 'homelab4',
     loadChildren: () => import('./pages/lab4/lab4.module').then(m => m.lab4Module),
   },
-  // lab5 
-  // { path: '', redirectTo: '/loginlab5', pathMatch: 'full' },
-  { path: 'loginlab5', component: LoginComponent },
-  { path: 'productlab5', component: Productlab5Component },
+  // lab5 dùng chung lab 7 
+  { path: '', redirectTo: '/loginlab5', pathMatch: 'full' },
+  { path: 'loginlab5', component: LoginComponent ,},
+  { path: 'productlab5' ,canActivate: [AuthGuard],component: Productlab5Component  },
   // lab 6
-  { path: '', redirectTo: '/lab6unit', pathMatch: 'full' },
-  { path: 'lab6unit', component: UnitComponent },
+  // { path: '', redirectTo: '/lab6unit', pathMatch: 'full' },
+  { path: 'lab6unit',canActivate: [AuthGuard] ,component: UnitComponent },
   { path: 'lab6addunit', component: CreateComponent },
   { path: 'lab6deleteunit/:id', component: DeleteComponent },
   { path: 'lab6editunit/:id', component: EditComponent },

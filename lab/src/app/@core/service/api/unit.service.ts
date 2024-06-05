@@ -3,18 +3,20 @@ import { Injectable } from '@angular/core';
 import { Iunit } from '../../interfaces/unit.interface';
 import { Observable } from 'rxjs';
 import { API_BASE_URL, API_ENDPOINT } from '../../config/api-endpoint.config';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UnitService {
   // nguồn : https://v17.angular.io/tutorial/tour-of-heroes/toh-pt6
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient , private authSv :AuthService) {}
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   getUnit(): Observable<Iunit> {
-    return this._http.get<Iunit>(API_BASE_URL + API_ENDPOINT.auth.unit);
+    return this._http.get<Iunit>(API_BASE_URL + API_ENDPOINT.auth.unit ,
+       { headers : new  HttpHeaders().set( 'x-access-token' , this.authSv.getToken() )});
   }
  
   addUnit(hero: Iunit): Observable<Iunit> {
